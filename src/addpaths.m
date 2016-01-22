@@ -7,3 +7,7 @@ addpath('./YalmipFiles/');
 addpath(genpath('../BluSTLFiles/'));
 addpath(genpath('../CrPrsTLFiles/'));
 addpath(genpath('../HSCC2016/'));
+
+mkdir('GurobiModels');
+mkdir('InfeasibleModels');
+mkdir('InterfaceFiles');
