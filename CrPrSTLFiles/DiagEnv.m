@@ -116,7 +116,7 @@ classdef DiagEnv
                     j = j - 1;              
                 end
             end
-            [diag, STLnodes] = DiagMinimize(system, T1:system.dt:T2, system.dt, DiagAndPredicate(system.constraints{:}, always(dynamics, t-T1, inf), keep_past, dyn_constraint)); %#ok<PROP>
+            [diag, STLnodes] = DiagMinimize(system, T1:system.dt:T2, system.dt, DiagAndPredicate(system.constraints{:}, diagalways(dynamics, t-T1, inf), keep_past, dyn_constraint)); %#ok<PROP>
             k = 1;
             for i = 1 : length(STLparseTrees)
                 for j = 1 : length(STLparseTrees(i).STLnodes)

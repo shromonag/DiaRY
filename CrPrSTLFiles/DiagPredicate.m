@@ -26,25 +26,25 @@ classdef (Abstract) DiagPredicate
             C = [C T(a:b)>=1];
             STLnodes(end).consBreakUp = setsCons(0, length(C)-init);
         end
-        function result = and(varargin)
+        function result = diagand(varargin)
             result = DiagAndPredicate(varargin{:});
         end
-        function result = or(varargin)
+        function result = diagor(varargin)
             for i = 1:numel(varargin)
                 varargin{i} = DiagNotPredicate(varargin{i});
             end
             result = DiagNotPredicate(DiagAndPredicate(varargin{:}));
         end
-        function result = not(p)
+        function result = diagnot(p)
             result = DiagNotPredicate(p);
         end
-        function result = implies(p, q)
+        function result = diagimplies(p, q)
             result = DiagNotPredicate(DiagAndPredicate(p, DiagNotPredicate(q)));
         end
-        function result = eventually(p, varargin)
+        function result = diageventually(p, varargin)
             result = DiagNotPredicate(DiagAlwaysPredicate(DiagNotPredicate(p), varargin{:}));
         end
-        function result = always(p, varargin)
+        function result = diagalways(p, varargin)
             result = DiagAlwaysPredicate(p, varargin{:});
         end
         function result = until(p, q, t1, t2)
