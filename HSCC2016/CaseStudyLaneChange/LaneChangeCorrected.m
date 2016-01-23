@@ -7,9 +7,13 @@ diagMode = 1;
 
 dt = 0.15;
 sys = Vehicle(dt, 0.5);
+sys.dynamics = DiagAndPredicate();
 sys1 = Vehicle(dt, 0.5);
+sys1.dynamics = DiagAndPredicate();
 sys2 = Vehicle(dt, 0.5);
+sys2.dynamics = DiagAndPredicate();
 sys3 = Vehicle(dt, 0.5);
+sys3.dynamics = DiagAndPredicate();
 [x, u, y] = sys.signals();
 env = VehicleEnvironment(sys);
 env.add_system(sys1);
