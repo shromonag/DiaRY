@@ -88,7 +88,7 @@ classdef DiagEnv
             for i = 1:length(system.dyn_constraints)
                 dynamic_constraints{i} = system.dyn_constraints{i}(x0, t, system.dt); %#ok<AGROW>
             end
-            dyn_constraint = always(DiagAndPredicate(dynamic_constraints{:}), t-T1, t-T1);
+            dyn_constraint = diagalways(DiagAndPredicate(dynamic_constraints{:}), t-T1, t-T1);
             nodeID = 0;
             STLparseTrees = [];
             for i = 1 : length(system.constraints)
