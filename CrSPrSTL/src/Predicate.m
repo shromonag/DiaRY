@@ -1,4 +1,4 @@
-classdef (Abstract) DiagPredicate
+classdef (Abstract) Predicate
     % Class: Predicate: Predicate has a set of True and False constraints: 
     %        Tconstraints = True => predicate = True
     %        Fconstraints = True => predicate = False
@@ -27,32 +27,32 @@ classdef (Abstract) DiagPredicate
             STLnodes(end).consBreakUp = setsCons(0, length(C)-init);
         end
         function result = and(varargin)
-            result = DiagAndPredicate(varargin{:});
+            result = AndPredicate(varargin{:});
         end
         function result = or(varargin)
             for i = 1:numel(varargin)
-                varargin{i} = DiagNotPredicate(varargin{i});
+                varargin{i} = NotPredicate(varargin{i});
             end
-            result = DiagNotPredicate(DiagAndPredicate(varargin{:}));
+            result = NotPredicate(AndPredicate(varargin{:}));
         end
         function result = not(p)
-            result = DiagNotPredicate(p);
+            result = NotPredicate(p);
         end
         function result = implies(p, q)
-            result = DiagNotPredicate(DiagAndPredicate(p, DiagNotPredicate(q)));
+            result = NotPredicate(AndPredicate(p, NotPredicate(q)));
         end
         function result = eventually(p, varargin)
-            result = DiagNotPredicate(DiagAlwaysPredicate(DiagNotPredicate(p), varargin{:}));
+            result = NotPredicate(AlwaysPredicate(NotPredicate(p), varargin{:}));
         end
         function result = always(p, varargin)
-            result = DiagAlwaysPredicate(p, varargin{:});
+            result = AlwaysPredicate(p, varargin{:});
         end
         function result = until(p, q, t1, t2)
             switch(nargin)
                 case 2
-                    result = DiagUntimedUntilPredicate(p, q);
+                    result = UntimedUntilPredicate(p, q);
                 case 4
-                    result = DiagAndPredicate(DiagAlwaysPredicate(p, 0, t1), FuturePredicate(q, t1, t2), DiagUntimedUntilPredicate(p, q, t1));
+                    result = AndPredicate(AlwaysPredicate(p, 0, t1), FuturePredicate(q, t1, t2), UntimedUntilPredicate(p, q, t1));
                 otherwise
                     error('Invalid number of arguments')
             end

@@ -88,7 +88,7 @@ classdef DiagEnv
             for i = 1:length(system.dyn_constraints)
                 dynamic_constraints{i} = system.dyn_constraints{i}(x0, t, system.dt); %#ok<AGROW>
             end
-            dyn_constraint = diagalways(DiagAndPredicate(dynamic_constraints{:}), t-T1, t-T1);
+            dyn_constraint = always(DiagAndPredicate(dynamic_constraints{:}), t-T1, t-T1);
             nodeID = 0;
             STLparseTrees = [];
             for i = 1 : length(system.constraints)
@@ -116,7 +116,7 @@ classdef DiagEnv
                     j = j - 1;              
                 end
             end
-            [diag, STLnodes] = DiagMinimize(system, T1:system.dt:T2, system.dt, DiagAndPredicate(system.constraints{:}, diagalways(dynamics, t-T1, inf), keep_past, dyn_constraint)); %#ok<PROP>
+            [diag, STLnodes] = DiagMinimize(system, T1:system.dt:T2, system.dt, DiagAndPredicate(system.constraints{:}, always(dynamics, t-T1, inf), keep_past, dyn_constraint)); %#ok<PROP>
             k = 1;
             for i = 1 : length(STLparseTrees)
                 for j = 1 : length(STLparseTrees(i).STLnodes)

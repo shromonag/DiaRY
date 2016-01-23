@@ -5,7 +5,8 @@ addpath('./YalmipFiles/');
 
 % Add the files necessary for running test cases in HSCC2016
 addpath(genpath('../BluSTLFiles/'));
-addpath(genpath('../CrPrsTLFiles/'));
+addpath(genpath('../CrPrSTLFiles/'));
+addpath(genpath('../CrSPrSTL/'));
 addpath(genpath('../HSCC2016/'));
 
 mkdir('GurobiModels');
