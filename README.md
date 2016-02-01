@@ -21,6 +21,6 @@ The matlab root folder should be set to the '/src'. The path to 'BluSTL/src' mus
 
 Run addpaths.m in the root directory to include the necessary paths for the files required for running the examples.
 
-To run the examples in ‘TestCases’, we provide README.txt with details of the files and the results expected under the directory ‘TestCases’.
+To run the examples in ‘TestCases’, we provide [README.txt](TestCases/README.txt) with details of the files and the results expected under the directory ‘TestCases’.
 
 We use external synthesis tools for running our examples. We have used BluSTL for running examples 1,2, and 3. The Aircraft Electric Power System has been created by us an example and can be found under ‘Examples/EPSexample’.
