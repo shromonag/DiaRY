@@ -8,13 +8,13 @@ This code was written for MATLAB R2014b. Earlier versions may be sufficient, but
 
 In addition to MATLAB R2014b, the toolbox requires the following:
 
-1. [YALMIP](http://users.isy.liu.se/johanl/yalmip/pmwiki.php): YALMIP is a modelling language for advanced modeling and solution of convex and nonconvex optimization problems.  It is implemented as a free toolbox for MATLAB by Johan Löfberg. Certain Yalmip files were modified for our purpose. The updated files are included in our package under 'src/YalmipFiles'. Our code has been tested with Release 20150204, we suggest using the same release to reproduce our results.
+* [YALMIP](http://users.isy.liu.se/johanl/yalmip/pmwiki.php): YALMIP is a modelling language for advanced modeling and solution of convex and nonconvex optimization problems.  It is implemented as a free toolbox for MATLAB by Johan Löfberg. Certain Yalmip files were modified for our purpose. The updated files are included in our package under 'src/YalmipFiles'. Our code has been tested with Release 20150204, we suggest using the same release to reproduce our results.
 
-2. [Gurobi Optimizer](http://www.gurobi.com/): An optimization solver for LP, QP, QCP, MIP, provided for free for academic use. 
+* [Gurobi Optimizer](http://www.gurobi.com/): An optimization solver for LP, QP, QCP, MIP, provided for free for academic use. 
 
 For trying out the examples in the folder 'TestCases', you need to additionally install:
 
-3. [BluSTL](https://github.com/vraman/BluSTL.git): BluSTL (pronounced "blue steel") is a MATLAB toolkit for automatically generating hybrid controllers from specifications written in Signal Temporal Logic.
+* [BluSTL](https://github.com/vraman/BluSTL.git): BluSTL (pronounced "blue steel") is a MATLAB toolkit for automatically generating hybrid controllers from specifications written in Signal Temporal Logic.
 
 ## Running the TestCases
 The matlab root folder should be set to the '/src'. The path to 'BluSTL/src' must be added to the MATLAB environment. 
