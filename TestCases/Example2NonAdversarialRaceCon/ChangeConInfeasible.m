@@ -1,4 +1,4 @@
-%% Running Example 2: Non-Adversarial Race, changing environment assumption(Infeasible)
+%% Running Example 2: Non-Adversarial Race, change system guarantee(Infeasible)
 
 clear;
 close all;
@@ -43,7 +43,7 @@ X0 = [X1; X2];
 DiagSC.BluSTLsys.x0 = X0;
 
 %% STL formula
-
+% STL 1
 DiagSC.BluSTLsys.stl_list = {'(x4(t) > 0.5) => alw_[0,inf]( (x2(t) > 0.5))'};
 
 %% Diagnosis related stuff
@@ -70,7 +70,7 @@ DiagSC.BluSTLsys.controller = controller;
 DiagSC.BluSTLsys.adversary  = adversary;
 fprintf('Running...')
 
-DiagSC.autoInfo = [2, 10, 0];
-DiagSC = diagRun_open_loop(DiagSC, controller);
+DiagSC.autoInfo = [2, 0, 10];
+DiagSC = diagRun_deterministic(DiagSC, controller);
 fprintf('\ndone.\n');
 

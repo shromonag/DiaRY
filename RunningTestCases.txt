@@ -1,8 +1,0 @@
-Running test cases:
-To try out the tool, the following need to be done:
-1. Install Yalmip from 'http://users.isy.liu.se/johanl/yalmip/pmwiki.php'. I use Release-20150204.
-2. Download BlusTL from 'https://github.com/vraman/BluSTL.git'. Include the ‘BluSTL/src’ into the matlab path.
-3. Download CrPrSTL from 'https://github.com/dsadigh/CrSPrSTL.git'. Include the ‘CrPrSTL/src’ into the matlab path.
-4. Run ‘addpath.m’
-4. Open matlab and the set the parent directory of Matlab to 'ParentDirectoryOfDiagTool/DiagTool/src'.
-5. You can now go to the test cases you want to try out and run them. An indetail description can be found in HSCC16TestCases.txt in HSCC2016.

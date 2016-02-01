@@ -138,6 +138,7 @@ function [F,z, predNode] = pred(st,k,var,M, nodeID)
         
     fnames = fieldnames(var);
     predNode = STLnode('phi', nodeID);
+    predNode.predStr = st;
     constrSet = [];
     for ifield= 1:numel(fnames)
         eval([ fnames{ifield} '= var.' fnames{ifield} ';']); 

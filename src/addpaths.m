@@ -4,11 +4,7 @@
 addpath('./YalmipFiles/');
 
 % Add the files necessary for running test cases in HSCC2016
-addpath(genpath('../BluSTLFiles/'));
-addpath(genpath('../CrPrSTLFiles/'));
-addpath(genpath('../CrSPrSTL/'));
+addpath('../BluSTLFiles/');
+addpath('../CrPrsTLFiles/');
+addpath('../CrSPrSTL/src');
 addpath(genpath('../HSCC2016/'));
-
-mkdir('GurobiModels');
-mkdir('InfeasibleModels');
-mkdir('InterfaceFiles');

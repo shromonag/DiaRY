@@ -43,7 +43,7 @@ X0 = [X1; X2];
 DiagSC.BluSTLsys.x0 = X0;
 
 %% STL formula
-
+%STL 1
 DiagSC.BluSTLsys.stl_list = {'alw_[0,inf] (not( (x1(t) > -0.5) and (x1(t) < 0.5) and (x3(t) > -0.5) and (x3(t) < 0.5)))'};
 
 %% Diagnosis related stuff

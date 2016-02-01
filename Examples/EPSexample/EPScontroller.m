@@ -104,11 +104,19 @@ EPSmodel.kCont = value(k);
 EPSmodel.bCont = findLongestZeros(EPSmodel.BusCont);
 
 [EPSmodel, status] = EPSadversary(EPSmodel, kMin, kMax, 1);
-failingb = [];
+firstFail = 0;
 
 while strcmp(status, 'fail')
     updatedPhiCons = [k == EPSmodel.kAdv];
-    failingb = [failingb EPSmodel.bAdv];
+	if firstFail == 0 
+    	failingb = EPSmodel.bAdv;
+		GenVals = EPSmodel.GenAdv;
+		CintVals = EPSmodel.CintAdv;
+		ConVals = EPSmodel.ConAdv;
+		BusVals = EPSmodel.BusAdv;
+		firstFail = 1;
+	end
+		
     for i = 1 : noGen
         updatedCons = [updatedCons G(i,:) == EPSmodel.GenAdv(i,:)];
     end
@@ -131,5 +139,26 @@ end
 
 fprintf('Feedback : \n');
 fprintf('1. Change k limits to [%f ms, %f ms]\n', kMin * samplingTime * 100, kMax * samplingTime * 100);
-fprintf('2. Change b to %f ms\n', failingb(1) * samplingTime * 100);
+fprintf('2. Change b to %f ms\n', failingb * samplingTime * 100);
+fprintf('Environment counter strategy: \n');
+fprintf('Generator 1 state : \n');
+GenVals(1,:)
+fprintf('Generator 2 state : \n');
+GenVals(2,:)
+fprintf('Contactor intent 1 state : \n');
+CintVals(1,:)
+fprintf('Contactor intent 2 state : \n');
+CintVals(2,:)	
+fprintf('Contactor intent 3 state : \n');
+CintVals(3,:)	
+fprintf('Contactor 1 state : \n');
+ConVals(1,:)
+fprintf('Contactor 2 state : \n');
+ConVals(2,:)	
+fprintf('Contactor 3 state : \n');
+ConVals(3,:)
+fprintf('Bus 1 state : \n');
+BusVals(1,:)
+fprintf('Bus 2 state : \n');
+BusVals(2,:)
 fprintf('done ... \n');

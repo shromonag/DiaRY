@@ -7,7 +7,7 @@ function status = feedbackSTLparseTrees(STLparseTrees, t, L)
         Timing = {};
         for j = 1 : length(STLparseTrees(i).STLnodes)
             if strcmp(STLparseTrees(i).STLnodes(j).nodeType, 'phi')
-                fprintf('Slack for Predicate node %d : %f\n', j, STLparseTrees(i).STLnodes(j).slackPred);                   
+                fprintf('Slack for Predicate node %d (%s): %f\n', j, STLparseTrees(i).STLnodes(j).predStr , STLparseTrees(i).STLnodes(j).slackPred);                   
             elseif strcmp(STLparseTrees(i).STLnodes(j).nodeType, 'always') || strcmp(STLparseTrees(i).STLnodes(j).nodeType, 'eventually') || strcmp(STLparseTrees(i).STLnodes(j).nodeType, 'until')
                 if STLparseTrees(i).STLnodes(j).sigma(2) - STLparseTrees(i).STLnodes(j).sigma(1) <= 0
                     Timing = {};

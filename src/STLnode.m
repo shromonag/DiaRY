@@ -8,6 +8,8 @@ classdef STLnode
         childNodes
         % STL node type
         nodeType
+        % Predicate string
+        predStr
         % Interval if it is a temporal operator
         STLinterval
         % Support of the node
